@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import { Col, Row, Container } from "../components/Grid";
+import { BookList, BookListItem } from "../components/BookList";
 import API from "../utils/API";
 
 class Search extends Component {
@@ -56,6 +57,28 @@ class Search extends Component {
                                     </Row>
                                 </Container>
                             </form>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col size="md-12">
+                            {!this.state.books.length ? (
+                                <h1 className="text-center">No Books to Display</h1>
+                            ) : (
+                                <BookList>
+                                    {this.state.books.map(book => {
+                                        return (
+                                            <BookListItem 
+                                                key={book.volumeInfo.title}
+                                                title={book.volumeInfo.title}
+                                                href={book.volumeInfo.infoLink}
+                                                author={book.volumeInfo.authors[0]}
+                                                description={book.volumeInfo.description}
+                                                thumbnail={book.volumeInfo.imageLinks.thumbnail}
+                                            />
+                                        );
+                                    })}
+                                </BookList>
+                            )}
                         </Col>
                     </Row>
                 </Container>

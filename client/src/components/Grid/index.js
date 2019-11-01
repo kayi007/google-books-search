@@ -17,10 +17,7 @@ export function Row({ fluid, children }) {
 export function Col({ size, children }) {
   return (
     <div
-      className={size
-        .split(" ")
-        .map(size => "col-" + size)
-        .join(" ")}
+      className={`my-3 ${size.split(" ").map(size => "col-" + size).join(" ")}`}
     >
       {children}
     </div>
