@@ -9,10 +9,10 @@ function App() {
     <Router>
       <div>
         <Nav />
-        <Switch>
+        {/* <Switch>
           <Route exact path="/search" component={Search} />
           <Route exact path="/saved" component={Saved} />
-        </Switch>
+        </Switch> */}
       </div>
     </Router>
   );
