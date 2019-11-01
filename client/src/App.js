@@ -21,10 +21,10 @@ function App() {
             </Col>
           </Row>
         </Container>
-        {/* <Switch>
+        <Switch>
           <Route exact path="/search" component={Search} />
-          <Route exact path="/saved" component={Saved} />
-        </Switch> */}
+          {/* <Route exact path="/saved" component={Saved} /> */}
+        </Switch>
       </div>
     </Router>
   );
