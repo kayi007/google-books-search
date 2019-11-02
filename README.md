@@ -1,9 +1,9 @@
 # Google Books Search React App
 Need a place to save the books you plan to read? <br/>
 You're maybe looking for a personal online library to store all of them? <br/>
-:link: [CLICK HERE TO START](https://kayi007.github.io/stclicky-game/)
+:link: [CLICK HERE TO START](https://google-books-search-kayi.herokuapp.com/)
 
-# How to user Google Books Search
+# How to use Google Books Search
 It's pretty simple to use, here's what the app has:
 - Search Page: 
 Enter the title of the Book or author of the book to begin your search. If you found the book you're looking for, just simply click the **SAVE** button to save for later. 
