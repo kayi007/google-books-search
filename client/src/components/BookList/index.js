@@ -1,6 +1,9 @@
+// import React, {useState} from "react";
 import React from "react";
 import Thumbnail from "../Thumbnail";
+import API from "../../utils/API";
 import { Container, Row, Col } from "../Grid";
+import Button from "../Button";
 
 // Exporting both RecipeList and RecipeListItem from this file
 
@@ -17,6 +20,23 @@ export function BookListItem({
   description,
   href
 }) {
+
+  // const [isLoading, showLoading] = useState(false);
+
+  function handleSave() {
+    console.log("clicked Save");
+    // showLoading(true);
+    API.saveBook({
+      author: author,
+      description: description,
+      link: href,
+      title: title,
+      image: thumbnail
+    }).then(res => console.log(res))
+      // .then(res => showLoading(false))
+      .catch(err => console.log(err));
+  }
+
   return (
     <li className="list-group-item">
       <Container>
@@ -27,13 +47,16 @@ export function BookListItem({
           <Col size="xs-8 sm-9">
             <h3>{title}</h3>
             <h5>{author}</h5>
-            <p>Description: {description}</p>
+            <p><b>Description:</b> {description}</p>
             <a rel="noreferrer noopener" target="_blank" href={href}>
               Check Out This Book!
             </a>
+            <Button onClick={() => handleSave()} type="warning" className="input-lg float-right">SAVE</Button>
           </Col>
         </Row>
       </Container>
     </li>
   );
 }
+
+

@@ -3,6 +3,7 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import { Col, Row, Container } from "../components/Grid";
 import { BookList, BookListItem } from "../components/BookList";
+// import SaveBtn from "../components/SaveBtn";
 import API from "../utils/API";
 
 class Search extends Component {
@@ -20,6 +21,7 @@ class Search extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
+        console.log(this.state.bookSearch);
         API.getBooks(this.state.bookSearch)
         .then(res => {
             console.log(res);
@@ -61,6 +63,7 @@ class Search extends Component {
                     </Row>
                     <Row>
                         <Col size="md-12">
+                            <h5>Results:</h5>
                             {!this.state.books.length ? (
                                 <h1 className="text-center">No Books to Display</h1>
                             ) : (
@@ -68,7 +71,7 @@ class Search extends Component {
                                     {this.state.books.map(book => {
                                         return (
                                             <BookListItem 
-                                                key={book.volumeInfo.title}
+                                                key={`BookID-${book.volumeInfo.title}`}
                                                 title={book.volumeInfo.title}
                                                 href={book.volumeInfo.infoLink}
                                                 author={book.volumeInfo.authors[0]}

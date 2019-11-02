@@ -1,5 +1,6 @@
 const axios = require("axios");
 const router = require("express").Router();
+const booksController = require("../../controllers/booksController");
 
 // Matches with "/api/books" for Google Books API 
 router.get("/google", (req, res) => {
@@ -9,5 +10,7 @@ router.get("/google", (req, res) => {
     // .then(results => console.log(results))
     .catch(err => res.status(422).json(err));
 });
+
+router.route("/").post(booksController.create);
 
 module.exports = router;
