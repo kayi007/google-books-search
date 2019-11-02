@@ -11,6 +11,10 @@ router.get("/google", (req, res) => {
     .catch(err => res.status(422).json(err));
 });
 
-router.route("/").post(booksController.create);
+router.route("/")
+    .post(booksController.create)
+    .get(booksController.findAll);
+
+router.route("/:id").delete(booksController.remove);
 
 module.exports = router;

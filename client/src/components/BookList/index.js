@@ -1,3 +1,4 @@
+// React Hook
 // import React, {useState} from "react";
 import React from "react";
 import Thumbnail from "../Thumbnail";
@@ -18,6 +19,8 @@ export function BookListItem({
   title,
   author,
   description,
+  saved,
+  children,
   href
 }) {
 
@@ -37,6 +40,12 @@ export function BookListItem({
       .catch(err => console.log(err));
   }
 
+  // function handleDelete(id){
+  //   API.deleteBook(id)
+  //   .then(res => this.loadBooks())
+  //   .catch(err => console.log(err));
+  // }
+
   return (
     <li className="list-group-item">
       <Container>
@@ -51,7 +60,10 @@ export function BookListItem({
             <a rel="noreferrer noopener" target="_blank" href={href}>
               Check Out This Book!
             </a>
-            <Button onClick={() => handleSave()} type="warning" className="input-lg float-right">SAVE</Button>
+            {!saved ? (<Button onClick={() => handleSave()} type="warning" className="input-lg float-right">SAVE</Button>) : (
+            <div>
+              {children}
+            </div>)}
           </Col>
         </Row>
       </Container>

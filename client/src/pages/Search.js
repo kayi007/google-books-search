@@ -3,13 +3,13 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import { Col, Row, Container } from "../components/Grid";
 import { BookList, BookListItem } from "../components/BookList";
-// import SaveBtn from "../components/SaveBtn";
 import API from "../utils/API";
 
 class Search extends Component {
     state = {
         books: [],
-        bookSearch: ""
+        bookSearch: "",
+        saved: false
     };
 
     handleInputChange = event => {
@@ -77,6 +77,7 @@ class Search extends Component {
                                                 author={book.volumeInfo.authors[0]}
                                                 description={book.volumeInfo.description}
                                                 thumbnail={book.volumeInfo.imageLinks.thumbnail}
+                                                saved={this.state.saved}
                                             />
                                         );
                                     })}
